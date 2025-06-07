@@ -1,8 +1,16 @@
 export const BRANDS = [
-  { id: 1, name: "Brand 1" },
-  { id: 2, name: "Brand 2" },
-  { id: 3, name: "Brand 3" },
-  { id: 4, name: "Brand 4" },
-  { id: 5, name: "Brand 5" },
-  { id: 6, name: "Brand 6" },
+  { id: 1, name: "Apple" },
+  { id: 2, name: "Bytedance" },
+  { id: 3, name: "Cisco" },
+  { id: 4, name: "Dyson" },
+  { id: 5, name: "Ebay" },
+  { id: 6, name: "Facebook" },
+  { id: 7, name: "Google" },
+  { id: 8, name: "Huawei" },
+  { id: 9, name: "Instagram" },
 ];
+
+export const findBrand = (id: number) =>
+  BRANDS.find((brand) => brand.id === id);
+
+export const findBrandName = (id: number) => findBrand(id)?.name;

@@ -5,7 +5,11 @@ import { AddInsight } from "../add-insight/add-insight.tsx";
 
 export const HEADER_TEXT = "Suit Tracker Insights";
 
-export const Header = () => {
+type HeaderProps = {
+  onAddInsight: () => void;
+};
+
+export const Header = ({ onAddInsight }: HeaderProps) => {
   const [addInsightOpen, setAddInsightOpen] = useState(false);
 
   return (
@@ -16,13 +20,18 @@ export const Header = () => {
           <Button
             label="Add insight"
             theme="secondary"
-            onClick={() => setAddInsightOpen(true)}
+            onClick={() => {
+              setAddInsightOpen(true);
+            }}
           />
         </div>
       </header>
       <AddInsight
         open={addInsightOpen}
-        onClose={() => setAddInsightOpen(false)}
+        onClose={() => {
+          setAddInsightOpen(false);
+          onAddInsight();
+        }}
       />
     </>
   );
